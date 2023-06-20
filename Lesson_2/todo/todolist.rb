@@ -115,7 +115,7 @@ class TodoList
   end
 
   def select
-    temp = TodoList.new('selected todos')
+    temp = TodoList.new(title)
     each do |todo|
       if yield(todo)
         temp.todos << todo
@@ -131,8 +131,8 @@ class TodoList
   #   end.todos.first
   # end
 
-  def find_by_title(title)
-    select { |todo| todo.title == title }.first
+  def find_by_title(str)
+    select { |todo| todo.title == str }.first
   end
 
   def all_done
